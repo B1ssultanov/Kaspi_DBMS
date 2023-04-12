@@ -1,41 +1,42 @@
--- -- Creating Products Category table
+-- Creating Products Category table
 
--- CREATE TABLE Products_category (
+-- CREATE TABLE MP2_Products_category (
 --     Prod_cat_id INT PRIMARY KEY,
 --     prod_cat_category VARCHAR(50)
 -- );
 
+
 -- INSERT ALL
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (1, 'Electronics')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (2, 'Clothing')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (3, 'Home goods')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (4, 'Beauty')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (5, 'Sports')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (6, 'Toys')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (7, 'Furniture')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (8, 'Food')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (9, 'Books')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (10, 'Jewelry')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (11, 'Automotive')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (12, 'Music')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (13, 'Movies')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (14, 'Pet supplies')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (15, 'Office supplies')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (16, 'Tools')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (17, 'Health')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (18, 'Baby')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (19, 'Outdoor')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (20, 'Shoes')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (21, 'Industrial')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (22, 'Grocery')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (23, 'Software')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (24, 'Cameras')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (25, 'Musical instruments')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (26, 'Arts and crafts')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (27, 'Cell phones')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (28, 'Watches')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (29, 'Luggage')
---    INTO Products_category (Prod_cat_id, prod_cat_category) VALUES (30, 'Garden')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (1, 'Electronics')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (2, 'Clothing')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (3, 'Home goods')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (4, 'Beauty')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (5, 'Sports')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (6, 'Toys')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (7, 'Furniture')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (8, 'Food')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (9, 'Books')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (10, 'Jewelry')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (11, 'Automotive')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (12, 'Music')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (13, 'Movies')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (14, 'Pet supplies')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (15, 'Office supplies')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (16, 'Tools')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (17, 'Health')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (18, 'Baby')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (19, 'Outdoor')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (20, 'Shoes')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (21, 'Industrial')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (22, 'Grocery')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (23, 'Software')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (24, 'Cameras')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (25, 'Musical instruments')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (26, 'Arts and crafts')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (27, 'Cell phones')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (28, 'Watches')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (29, 'Luggage')
+--    INTO MP2_Products_category (Prod_cat_id, prod_cat_category) VALUES (30, 'Garden')
 -- SELECT 1 FROM dual;
 
 
@@ -228,70 +229,68 @@
  
 -- Drop Table MP2_Discount 
  
--- INSERT ALL 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (1, 'Spring Sale', 1, '04/10-2023', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (2, 'Summer Sale', 2, '06/01-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (3, 'Winter Clearance', 3, '01/15-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (4, 'New Year Sale', 4, '01/01-2023', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (5, 'Back to School', 5, '08/15-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (6, 'Holiday Sale', 6, '12/10-2023', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (7, 'End of Summer Sale', 7, '09/01-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (8, 'Labor Day Sale', 8, '09/04-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (9, 'Black Friday Sale', 9, '11/24-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (10, 'Cyber Monday', 10, '11/27-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (11, 'Valentine Day Sale', 11, '02/14-2023', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---     VALUES (12, 'Mother Day Sale', 12, '05/14-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (13, 'Summer Sale , 13,-2023 '06-01-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (14, 'Back to School , 14,-2023 '08-01-2023', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (15, 'Fall Collection , 15,-2023 '09-15-2023', 3) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (16, 'Halloween Sale , 16,-2023 '10-15-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (17, 'Thanksgiving , 17,-2023 '11-15-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (18, 'Christmas Sale , 18,-2023 '12-01-2023', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (19, 'New Year Sale 2024', 19, '2024-01-01', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (20, 'Valentines Day Sale 2024', 20, '2024-02-01', 12)
--- INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (21, 'Spring Sale 2024', 21, '2024-03-01', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (22, 'Easter Sale 2024', 22, '2024-04-01', 12) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (23, 'Mothers Day Sale 2024', 23, '2024-05-01', 6) 
---     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)  
---       VALUES (24, 'Memorial Day Sale 2024', 24, '2024-05-27', 3) 
+-- INSERT ALL
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---       VALUES (25, 'Summer sale', 25, '06-01-2023', 12) 
+--     VALUES (1, 'Spring Sale', 1, TO_DATE('2023/04/10', 'yyyy/mm/dd'), 6)
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---       VALUES (26, 'Summer sale', 26, '06-01-2023', 12) 
+--     VALUES (2, 'Summer Sale', 2, TO_DATE('2023/06/01', 'yyyy/mm/dd'), 12)
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---       VALUES (27, 'Summer sale', 27, '06-01-2023', 3) 
+--     VALUES (3, 'Winter Clearance', 3, TO_DATE('2023/01/15', 'yyyy/mm/dd'), 12)
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---       VALUES (28, 'Summer sale', 28, '06-01-2023', 6) 
+--     VALUES (4, 'New Year Sale', 4, TO_DATE('2023/01/01', 'yyyy/mm/dd'), 6)
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---       VALUES (29, 'Summer sale', 29, '06-01-2023', 12) 
+--     VALUES (5, 'Back to School', 5, TO_DATE('2023/08/15', 'yyyy/mm/dd'), 12)
 --     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
---      VALUES (30, 'Summer sale', 30, '06-01-2023', 12)
--- SELECT 1 FROM dual;
-
-
+--     VALUES (6, 'Holiday Sale', 6, TO_DATE('2023/12/10', 'yyyy/mm/dd'), 6)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (7, 'End of Summer Sale', 7, TO_DATE('2023/09/01', 'yyyy/mm/dd'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (8, 'Labor Day Sale', 8, TO_DATE('2023/09/04', 'yyyy/mm/dd'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (9, 'Black Friday Sale', 9, TO_DATE('2023/11/24', 'yyyy/mm/dd'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (10, 'Cyber Monday', 10, TO_DATE('2023/11/27', 'yyyy/mm/dd'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (11, 'Valentine Day Sale', 11, TO_DATE('2023/02/14', 'yyyy/mm/dd'), 6)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--     VALUES (12, 'Mother Day Sale', 12, TO_DATE('2023/05/14', 'yyyy/mm/dd'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (13, 'Summer Sale 2023', 13, TO_DATE('2023-06-01', 'YYYY-MM-DD'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (14, 'Back to School 2023', 14, TO_DATE('2023-08-01', 'YYYY-MM-DD'), 6)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (15, 'Fall Collection 2023', 15, TO_DATE('2023-09-15', 'YYYY-MM-DD'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (16, 'Halloween Sale 2023', 16, TO_DATE('2023-10-15', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (17, 'Thanksgiving 2023', 17, TO_DATE('2023-11-15', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (18, 'Christmas Sale 2023', 18, TO_DATE('2023-12-01', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (19, 'New Year Sale 2024', 19, TO_DATE('2024-01-01', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (20, 'Valentines Day Sale 2024', 20, TO_DATE('2024-02-01', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (21, 'Spring Sale 2024', 21, TO_DATE('2024-03-01', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (22, 'Easter Sale 2024', 22, TO_DATE('2024-04-01', 'YYYY-MM-DD'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (23, 'Mothers Day Sale 2024', 23, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 6)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration) 
+--       VALUES (24, 'Memorial Day Sale 2024', 24, TO_DATE('2024-05-27', 'YYYY-MM-DD'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--       VALUES (25, 'Summer sale', 25, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--       VALUES (26, 'Summer sale', 26, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--       VALUES (27, 'Summer sale', 27, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 3)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--       VALUES (28, 'Summer sale', 28, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 6)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--       VALUES (29, 'Summer sale', 29, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 12)
+--     INTO MP2_Discount (Discounts_id, Discount_event, Product_id, Discount_start_day, Discount_duration)
+--      VALUES (30, 'Summer sale', 30, TO_DATE('2023-06-01', 'yyyy-mm-dd'), 12)
+-- SELECT 1 FROM DUAL;
 
 
 
@@ -397,44 +396,45 @@
 -- );
 
 -- INSERT ALL
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (1, 1, 1, TIMESTAMP '03-23-2022 10:23:54', 'Great product, will definitely buy again.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (2, 2, 1, TIMESTAMP '04-01-2022 12:45:12', 'Really happy with my purchase, arrived on time and in good condition.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (3, 3, 1, TIMESTAMP '04-10-2022 09:10:23', 'The product was not what I expected, but customer service was helpful in resolving the issue.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (4, 4, 2, TIMESTAMP '05-05-2022 14:20:43', 'This is the best product I have ever bought, highly recommended!')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (5, 5, 2, TIMESTAMP '05-20-2022 11:35:16', 'Product arrived damaged, but the seller provided a replacement quickly.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (6, 6, 2, TIMESTAMP '06-01-2022 16:50:39', 'The product did not meet my expectations, but the seller was willing to provide a partial refund.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (7, 7, 3, TIMESTAMP '06-22-2022 10:15:07', 'Very satisfied with the product and the customer service.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (8, 8, 3, TIMESTAMP '07-03-2022 09:30:56', 'Product arrived on time and in good condition.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (9, 9, 3, TIMESTAMP '07-18-2022 14:40:02', 'The product did not work as expected, but the seller was helpful in resolving the issue.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (10, 10, 4, TIMESTAMP 5-202-20222 15:12:36', 'I am very happy with my purchase, the product is high quality and exactly as described.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (11, 11, 4, TIMESTAMP 9-202-20222 12:20:08', 'The product arrived late, but the seller provided a discount to make up for the inconvenience.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (12, 12, 4, TIMESTAMP 1-202-20222 09:55:43', 'I am very satisfied with the product and the seller.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (13, 7, 16, TIMESTAMP 0-202-20222 10:35:00', 'Great product, very satisfied.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (14, 14, 2, TIMESTAMP 5-202-20222 15:20:00', 'Not the best product, but it gets the job done.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (15, 2, 23, TIMESTAMP 7-202-20222 09:45:00', 'Excellent quality, would recommend to others.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (16, 17, 5, TIMESTAMP 0-202-20222 13:30:00', 'Disappointed with this product, it broke after a few uses.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (17, 5, 18, TIMESTAMP 2-202-20222 14:15:00', 'Good value for money.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (18, 9, 9, TIMESTAMP '-2022-2022 11:50:00', 'Great customer service.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (19, 13, 15, TIMESTAMP '-2022-2022 16:10:00', 'Very happy with this purchase.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (20, 5, 8, TIMESTAMP '03022 0-20228:55:00', 'Not what I expected, very disappointed.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (21, 12, 26, TIMESTAMP '-2022-2022 12:30:00', 'Good quality product.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (22, 1, 1, TIMESTAMP '03022 1-20224:05:00', 'Excellent product, highly recommend it.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (23, 8, 20, TIMESTAMP '02022 -202216:40:00', 'Not as good as I was expecting.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (24, 14, 10, TIMESTAMP '-2022-2022 10:25:00', 'Would not recommend this product.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (25, 15, 6, TIMESTAMP '02022 -202209:00:00', 'Happy with my purchase.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (26, 12, 7, TIMESTAMP'05022 1-20225:10:00', 'This item was exactly what I was looking for. It arrived quickly and in perfect condition.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (27, 41, 11, TIMESTAMP'-2022-2022 18:45:00', 'I bought this as a gift for my friend and she loved it! The packaging was really nice too.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (28, 26, 2, TIMESTAMP'03-22 12-2022:30:00', 'Im really happy with this purchase. The product is high quality and arrived on time.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (29, 8, 9, TIMESTAMP'02022 0-20229:15:00', 'The product arrived with a scratch on it, but the customer service team was really helpful in resolving the issue.')
---     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (30, 17, 3, TIMESTAMP'01-22 14-2022:55:00', 'This item was a bit smaller than I expected, but the quality is good and it looks really nice on my shelf.')
--- SELECT * F
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (1, 1, 1, TIMESTAMP '2022-03-23 10:23:54', 'Great product, will definitely buy again.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (2, 2, 1, TIMESTAMP '2022-04-01 12:45:12', 'Really happy with my purchase, arrived on time and in good condition.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (3, 3, 1, TIMESTAMP '2022-04-10 09:10:23', 'The product was not what I expected, but customer service was helpful in resolving the issue.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (4, 4, 2, TIMESTAMP '2022-05-05 14:20:43', 'This is the best product I have ever bought, highly recommended!')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (5, 5, 2, TIMESTAMP '2022-05-20 11:35:16', 'Product arrived damaged, but the seller provided a replacement quickly.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (6, 6, 2, TIMESTAMP '2022-06-01 16:50:39', 'The product did not meet my expectations, but the seller was willing to provide a partial refund.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (7, 7, 3, TIMESTAMP '2022-06-22 10:15:07', 'Very satisfied with the product and the customer service.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (8, 8, 3, TIMESTAMP '2022-07-03 09:30:56', 'Product arrived on time and in good condition.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (9, 9, 3, TIMESTAMP '2022-07-18 14:40:02', 'The product did not work as expected, but the seller was helpful in resolving the issue.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (10, 10, 4, TIMESTAMP '2022-05-20 15:12:36', 'I am very happy with my purchase, the product is high quality and exactly as described.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (11, 11, 4, TIMESTAMP '2022-09-20 12:20:08', 'The product arrived late, but the seller provided a discount to make up for the inconvenience.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (12, 12, 4, TIMESTAMP '2022-01-20 09:55:43', 'I am very satisfied with the product.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (13, 7, 16, TIMESTAMP '2022-10-20 10:35:00', 'Great product, very satisfied.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (14, 14, 2, TIMESTAMP '2022-05-20 15:20:00', 'Not the best product, but it gets the job done.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (15, 2, 23, TIMESTAMP '2022-07-20 09:45:00', 'Excellent quality, would recommend to others.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (16, 17, 5, TIMESTAMP '2022-10-20 13:30:00', 'Disappointed with this product, it broke after a few uses.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (17, 5, 18, TIMESTAMP '2022-02-20 14:15:00', 'Good value for money.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (18, 9, 9, TIMESTAMP '2022-12-20 11:50:00', 'Great customer service.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (19, 13, 15, TIMESTAMP '2022-12-20 16:10:00', 'Very happy with this purchase.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (20, 5, 8, TIMESTAMP '2022-03-20 10:55:00', 'Not what I expected, very disappointed.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (21, 12, 26, TIMESTAMP '2022-12-20 12:30:00', 'Good quality product.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (22, 1, 1, TIMESTAMP '2022-03-20 14:05:00', 'Excellent product, highly recommend it.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (23, 8, 20, TIMESTAMP '2022-02-20 16:40:00', 'Not as good as I was expecting.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (24, 14, 10, TIMESTAMP '2022-12-20 10:25:00', 'Would not recommend this product.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (25, 15, 6, TIMESTAMP '2022-02-20 09:00:00', 'Happy with my purchase.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (26, 12, 7, TIMESTAMP '2022-05-20 15:10:00', 'This item was exactly what I was looking for. It arrived quickly and in perfect condition.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (27, 41, 11, TIMESTAMP '2022-12-20 18:45:00', 'I bought this as a gift for my friend and she loved it! The packaging was really nice too.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (28, 26, 2, TIMESTAMP '2022-03-22 12:30:00', 'Im really happy with this purchase. The product is high quality and arrived on time.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (29, 8, 9, TIMESTAMP '2022-02-20 09:15:00', 'The product arrived with a scratch on it, but the customer service team was really helpful in resolving the issue.')
+--     INTO MP2_Review (Review_id, Cust_id, Prod_id, Review_time, Review_desc) VALUES (30, 17, 3, TIMESTAMP '2022-01-22 14:55:00', 'This item was a bit smaller than I expected, but the quality is good and it looks really nice on my shelf.')
+-- SELECT 1 FROM DUAL;
 
 
 
 
--2022-- Creatinrs 
 
--2022-- CREATE TABLE mp2_orders (
+
+
+-- CREATE TABLE mp2_orders (
 --   order_id INT NOT NULL,
 --   order_weight_status VARCHAR(50),
 --   order_price DECIMAL(10,2),
@@ -445,37 +445,39 @@
 --   CONSTRAINT FK_CustomerOrder FOREIGN KEY (customer_id) REFERENCES mp2_customers(cust_id)
 -- );
 
+-- DROP TABLE mp2_orders
+
 -- INSERT ALL
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1001, 'Underweight', 50.99, 1, 1)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1002, 'Overweight', 120.50, 2, 2)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1003, 'Normal', 75.00, 3, 3)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1004, 'Underweight', 25.99, 4, 4)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1005, 'Overweight', 150.75, 5, 5)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1006, 'Normal', 85.25, 6, 6)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1007, 'Underweight', 30.99, 7, 7)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1008, 'Overweight', 210.00, 8, 8)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1009, 'Normal', 95.50, 9, 9)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1010, 'Underweight', 45.99, 10, 10)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1011, 'Overweight', 170.25, 11, 11)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1012, 'Normal', 65.00, 12, 12)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1013, 'Underweight', 20.99, 13, 13)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1014, 'Overweight', 190.50, 14, 14)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1015, 'Normal', 105.00, 15, 15)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1016, 'Underweight', 35.99, 16, 16)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1017, 'Overweight', 230.75, 17, 17)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1018, 'Normal', 125.50, 18, 18)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1019, 'Underweight', 55.99, 19, 19)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1020, 'Overweight', 250.50, 20, 20)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1021, 'Normal', 135.00, 21, 21)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1022, 'Underweight', 40.99, 22, 22)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1023, 'Overweight', 190.25, 23, 23)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1024, 'Normal', 95.50, 24, 24)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1025, 'Underweight', 28.99, 25, 25)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1026, 'Overweight', 130.75, 26, 26)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1027, 'Normal', 75.50, 27, 27)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1028, 'Underweight', 35.99, 28, 28)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1029, 'Overweight', 170.50, 29, 29)
---     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1030, 'Normal', 125.00, 30, 30)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (1, 'Underweight', 50.99, 1, 1)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (2, 'Overweight', 120.50, 2, 2)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (3, 'Normal', 75.00, 3, 3)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (4, 'Underweight', 25.99, 4, 4)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (5, 'Overweight', 150.75, 5, 5)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (6, 'Normal', 85.25, 6, 6)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (7, 'Underweight', 30.99, 7, 7)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (8, 'Overweight', 210.00, 8, 8)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (9, 'Normal', 95.50, 9, 9)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (10, 'Underweight', 45.99, 10, 10)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (11, 'Overweight', 170.25, 11, 11)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (12, 'Normal', 65.00, 12, 12)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (13, 'Underweight', 20.99, 13, 13)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (14, 'Overweight', 190.50, 14, 14)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (15, 'Normal', 105.00, 15, 15)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (16, 'Underweight', 35.99, 16, 16)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (17, 'Overweight', 230.75, 17, 17)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (18, 'Normal', 125.50, 18, 18)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (19, 'Underweight', 55.99, 19, 19)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (20, 'Overweight', 250.50, 20, 20)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (21, 'Normal', 135.00, 21, 21)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (22, 'Underweight', 40.99, 22, 22)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (23, 'Overweight', 190.25, 23, 23)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (24, 'Normal', 95.50, 24, 24)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (25, 'Underweight', 28.99, 25, 25)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (26, 'Overweight', 130.75, 26, 26)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (27, 'Normal', 75.50, 27, 27)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (28, 'Underweight', 35.99, 28, 28)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (29, 'Overweight', 170.50, 29, 29)
+--     INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id) VALUES (30, 'Normal', 125.00, 30, 30)
 -- SELECT 1 FROM DUAL;
 
 
@@ -487,7 +489,6 @@
 
 
 
--- Creating Photos
 -- CREATE TABLE MP2_Photos ( 
 --     Photo_id Number(10) PRIMARY KEY, 
 --     Product_id Number(10) REFERENCES MP2_Products(Prod_id), 
@@ -545,37 +546,38 @@
 -- );
 
 -- INSERT ALL
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (1, TO_TIMESTAMP('01-01-2022 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (2, TO_TIMESTAMP('02-01-2022 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (3, TO_TIMESTAMP('03-01-2022 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (4, TO_TIMESTAMP('04-01-2022 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 3 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (5, TO_TIMESTAMP('05-01-2022 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (6, TO_TIMESTAMP('06-01-2022 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (7, TO_TIMESTAMP('07-01-2022 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 5 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (8, TO_TIMESTAMP('08-01-2022 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (9, TO_TIMESTAMP('09-01-2022 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (10, TO_TIMESTAMP('-2022-2022 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (11, TO_TIMESTAMP('-2022-2022 22:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (12, TO_TIMESTAMP('-2022-2022 23:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (13, TO_TIMESTAMP('-2022-2022 23:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (14, TO_TIMESTAMP('02-01-2022 01:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (15, TO_TIMESTAMP('03-01-2022 02:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (16, TO_TIMESTAMP('04-01-2022 03:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 5 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (17, TO_TIMESTAMP('05-01-2022 04:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (18, TO_TIMESTAMP('06-01-2022 05:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (19, TO_TIMESTAMP('27-01 -202206:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (20, TO_TIMESTAMP('28-01 -202207:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (21, TO_TIMESTAMP('29-01 -202208:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (22, TO_TIMESTAMP('20-01 -202209:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 3 years.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (23, TO_TIMESTAMP('11-01-2023 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (24, TO_TIMESTAMP('12-01-2023 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (25, TO_TIMESTAMP('2024-01-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (1, TO_TIMESTAMP('2022-01-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (2, TO_TIMESTAMP('2022-02-01 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (3, TO_TIMESTAMP('2022-03-01 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (4, TO_TIMESTAMP('2022-04-01 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 3 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (5, TO_TIMESTAMP('2022-05-01 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (6, TO_TIMESTAMP('2022-06-01 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (7, TO_TIMESTAMP('2022-07-01 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 5 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (8, TO_TIMESTAMP('2022-08-01 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (9, TO_TIMESTAMP('2022-09-01 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (10, TO_TIMESTAMP('2022-10-01 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (11, TO_TIMESTAMP('2022-11-01 22:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (12, TO_TIMESTAMP('2022-12-01 23:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (13, TO_TIMESTAMP('2022-01-02 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (14, TO_TIMESTAMP('2022-02-01 01:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (15, TO_TIMESTAMP('2022-03-01 02:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (16, TO_TIMESTAMP('2022-04-01 03:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 5 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (17, TO_TIMESTAMP('2022-05-01 04:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (18, TO_TIMESTAMP('2022-06-01 05:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (19, TO_TIMESTAMP('2022-07-01 06:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (20, TO_TIMESTAMP('2022-08-01 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (21, TO_TIMESTAMP('2022-09-01 08:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (22, TO_TIMESTAMP('2022-10-01 09:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 3 years.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (23, TO_TIMESTAMP('2023-11-01 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first 6 months, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (24, TO_TIMESTAMP('2023-12-01 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 1 year.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (25, TO_TIMESTAMP('2024-01-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
 --     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (26, TO_TIMESTAMP('2024-02-01 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
 --     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (27, TO_TIMESTAMP('2024-03-01 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
 --     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (28, TO_TIMESTAMP('2024-04-01 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to work for 1 year.')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (29, TO_TIMESTAMP('2024-05-01 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace')
---     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (30, TO_TIMESTAMP('2024-05-01 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (29, TO_TIMESTAMP('2024-05-01 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'If this product breaks within the first year, we will replace it for free.')
+--     INTO MP2_Guarantee (Prod_id, Guarantee_time, Guarantee_description) VALUES (30, TO_TIMESTAMP('2024-06-01 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'This product is guaranteed to be free from defects for 2 years.')
 -- SELECT 1 FROM DUAL;
+
 
 
 
@@ -584,48 +586,50 @@
 
 -- Creating MP2_Ships
 
-CREATE TABLE MP2_Ships (
-  ship_id NUMBER(10) PRIMARY KEY,
-  ship_out_time DATE,
-  ship_appro_time DATE,
-  ship_in_time DATE,
-  ship_order_id NUMBER(10),
-  ship_address VARCHAR2(100),
-  ship_status VARCHAR2(100),
-  CONSTRAINT fk_order_id FOREIGN KEY (ship_order_id) REFERENCES MP2_Orders(order_id)
-);
+-- CREATE TABLE MP2_Ships (
+--   ship_id NUMBER(10) PRIMARY KEY,
+--   ship_out_time DATE,
+--   ship_appro_time DATE,
+--   ship_in_time DATE,
+--   ship_order_id NUMBER(10),
+--   ship_address VARCHAR2(100),
+--   ship_status VARCHAR2(100),
+--   CONSTRAINT fk_order_id FOREIGN KEY (ship_order_id) REFERENCES MP2_Orders(order_id)
+-- );
 
 -- Drop TABLE MP2_ships
 
-INSERT ALL
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (1, '01-01-2022', '01-05-2022', '01-10-2022', 1, '123 Main St, Anytown USA', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (2, '02-02-2022', '02-07-2022', '02-12-2022', 2, '456 Elm St, Anytown USA', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (3, '03-03-2022', '03-08-2022', '03-10-2022', 3, '789 Oak St, Anytown USA', 'In Transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (4, '04-04-2022', '04-10-2022', '04-10-2022', 4, '111 Pine St, Anytown USA', 'In Transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (5, '05-05-2022', '05-11-2022', '05-12-2022', 5, '222 Maple St, Anytown USA', 'In Transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (6, '06-06-2022', '06-12-2022', '06-06-2022', 6, '333 Oak St, Anytown USA', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (7, '07-07-2022', '07-05-2022', '07-07-2022', 7, '444 Main St, Anytown USA', 'In Transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (8, '08-08-2022', '08-06-2022', '08-01-2022', 8, '555 Elm St, Anytown USA', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (9, '09-09-2022', '09-08-2022', '09-02-2022', 9, '666 Oak St, Anytown USA', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (10, '06-01-2022', '06-02-2022', '06-05-2022', 10, '123 Main St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (11, '06-02-2022', '06-03-2022', '06-06-2022', 11, '456 Elm St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (12, '06-03-2022', '06-04-2022', '06-07-2022', 12, '789 Oak St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (13, '06-04-2022', '06-05-2022', '06-08-2022', 13, '321 Maple St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (14, '06-05-2022', '06-06-2022', '06-09-2022', 14, '654 Birch St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (15, '06-06-2022', '06-07-2022', '06-10-2022', 15, '987 Pine St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (16, '06-07-2022', '06-08-2022', '06-11-2022', 16, '246 Cedar St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (17, '06-08-2022', '06-09-2022', '06-12-2022', 17, '369 Walnut St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (18, '06-09-2022', '06-10-2022', '06-03-2022', 18, '582 Oak St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (19, '06-10-2022', '06-11-2022', '06-04-2022', 19, '792 Pine St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (20, '05-10-2022', '05-11-2022', '05-04-2022', 20, '123 Main St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (21, '06-01-2022', '06-02-2022', '06-05-2022', 21, '456 Oak St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (22, '07-04-2022', '07-05-2022', '07-08-2022', 22, '789 Pine St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (23, '08-05-2022', '08-06-2022', '08-09-2022', 23, '1010 Elm St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (24, '09-08-2022', '09-09-2022', '09-12-2022', 24, '1111 Maple St', 'Shipped')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (25, '10-11-2022', '10-12-2022', '10-05-2022', 25, '1313 Cedar St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (26, '04-05-2023', '04-06-2023', '04-07-2023', 26, '123 Main St', 'In transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (27, '04-06-2023', '04-07-2023', '04-08-2023', 27, '456 Elm St', 'In transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (28, '04-07-2023', '04-08-2023', '04-09-2023', 28, '789 Oak St', 'In transit')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (29, '02-04-2023', '04-09-2023', '04-10-2023', 29, '321 Pine St', 'Delivered')
-    INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (30, '04-09-2023', '04-10-2023', '04-11-2023', 30, '654 Maple St', 'Delivered')
-SELECT 1 FROM DUAL;
+-- INSERT ALL
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (1, '01-01-2022', '01-05-2022', '01-10-2022', 1, '123 Main St, Anytown USA', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (2, '02-02-2022', '02-07-2022', '02-12-2022', 2, '456 Elm St, Anytown USA', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (3, '03-03-2022', '03-08-2022', '03-10-2022', 3, '789 Oak St, Anytown USA', 'In Transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (4, '04-04-2022', '04-10-2022', '04-10-2022', 4, '111 Pine St, Anytown USA', 'In Transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (5, '05-05-2022', '05-11-2022', '05-12-2022', 5, '222 Maple St, Anytown USA', 'In Transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (6, '06-06-2022', '06-12-2022', '06-06-2022', 6, '333 Oak St, Anytown USA', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (7, '07-07-2022', '07-05-2022', '07-07-2022', 7, '444 Main St, Anytown USA', 'In Transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (8, '08-08-2022', '08-06-2022', '08-01-2022', 8, '555 Elm St, Anytown USA', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (9, '09-09-2022', '09-08-2022', '09-02-2022', 9, '666 Oak St, Anytown USA', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (10, '06-01-2022', '06-02-2022', '06-05-2022', 10, '123 Main St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (11, '06-02-2022', '06-03-2022', '06-06-2022', 11, '456 Elm St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (12, '06-03-2022', '06-04-2022', '06-07-2022', 12, '789 Oak St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (13, '06-04-2022', '06-05-2022', '06-08-2022', 13, '321 Maple St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (14, '06-05-2022', '06-06-2022', '06-09-2022', 14, '654 Birch St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (15, '06-06-2022', '06-07-2022', '06-10-2022', 15, '987 Pine St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (16, '06-07-2022', '06-08-2022', '06-11-2022', 16, '246 Cedar St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (17, '06-08-2022', '06-09-2022', '06-12-2022', 17, '369 Walnut St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (18, '06-09-2022', '06-10-2022', '06-03-2022', 18, '582 Oak St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (19, '06-10-2022', '06-11-2022', '06-04-2022', 19, '792 Pine St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (20, '05-10-2022', '05-11-2022', '05-04-2022', 20, '123 Main St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (21, '06-01-2022', '06-02-2022', '06-05-2022', 21, '456 Oak St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (22, '07-04-2022', '07-05-2022', '07-08-2022', 22, '789 Pine St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (23, '08-05-2022', '08-06-2022', '08-09-2022', 23, '1010 Elm St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (24, '09-08-2022', '09-09-2022', '09-12-2022', 24, '1111 Maple St', 'Shipped')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (25, '10-11-2022', '10-12-2022', '10-05-2022', 25, '1313 Cedar St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (26, '04-05-2023', '04-06-2023', '04-07-2023', 26, '123 Main St', 'In transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (27, '04-06-2023', '04-07-2023', '04-08-2023', 27, '456 Elm St', 'In transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (28, '04-07-2023', '04-08-2023', '04-09-2023', 28, '789 Oak St', 'In transit')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (29, '02-04-2023', '04-09-2023', '04-10-2023', 29, '321 Pine St', 'Delivered')
+--     INTO MP2_Ships (ship_id, ship_out_time, ship_appro_time, ship_in_time, ship_order_id, ship_address, ship_status) VALUES (30, '04-09-2023', '04-10-2023', '04-11-2023', 30, '654 Maple St', 'Delivered')
+-- SELECT 1 FROM DUAL;
+
+
