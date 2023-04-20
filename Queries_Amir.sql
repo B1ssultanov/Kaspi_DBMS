@@ -1,3 +1,36 @@
+Эта процедура получает необходимую информацию для создания нового клиента в таблице MP2_Customers и нового заказа в таблице mp2_orders.
+
+CREATE OR REPLACE PROCEDURE create_customer_and_order(
+    p_cust_name IN VARCHAR2,
+    p_cust_surname IN VARCHAR2,
+    p_cust_address IN VARCHAR2,
+    p_cust_phone IN VARCHAR2,
+    p_cust_email IN VARCHAR2,
+    p_cust_age IN NUMBER,
+    p_cust_wallet IN NUMBER,
+    p_order_weight_status IN VARCHAR2,
+    p_order_price IN NUMBER,
+    p_product_id IN NUMBER
+) AS
+    v_cust_id NUMBER;
+    v_order_id NUMBER;
+BEGIN
+    -- Insert new customer into MP2_Customers table
+    INSERT INTO MP2_Customers (Cust_Name, Cust_Surname, Cust_Address, Cust_Phone, Cust_Email, Cust_Age, Cust_Wallet)
+    VALUES (p_cust_name, p_cust_surname, p_cust_address, p_cust_phone, p_cust_email, p_cust_age, p_cust_wallet)
+    RETURNING Cust_ID INTO v_cust_id;
+
+    -- Insert new order into mp2_orders table
+    INSERT INTO mp2_orders (order_id, order_weight_status, order_price, customer_id, product_id)
+    VALUES (SEQ_ORDER_ID.NEXTVAL, p_order_weight_status, p_order_price, v_cust_id, p_product_id)
+    RETURNING order_id INTO v_order_id;
+    
+    DBMS_OUTPUT.PUT_LINE('New customer and order created with customer ID ' || v_cust_id || ' and order ID ' || v_order_id);
+END;
+
+
+
+
 CREATE OR REPLACE PROCEDURE update_product_price (
   p_prod_id IN NUMBER,
   p_new_price IN NUMBER
