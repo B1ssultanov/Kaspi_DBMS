@@ -28,6 +28,8 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('New customer and order created with customer ID ' || v_cust_id || ' and order ID ' || v_order_id);
 END;
 
+(CREATE SEQUENCE SEQ_ORDER_ID START WITH 1 INCREMENT BY 1;)
+
 
 
 
