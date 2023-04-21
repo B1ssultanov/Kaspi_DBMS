@@ -151,10 +151,18 @@
 -- BEFORE INSERT ON MP2_REVIEW
 -- FOR EACH ROW
 -- DECLARE
---     TYPE arr IS TABLE OF MP2_REVIEW.REVIEW_DESC%TYPE;
+--     TYPE arr IS TABLE OF MP2_REVIEW.REVIEW_DESC%TYPE INDEX BY PLS_INTEGER;
 --     bad_words arr;
 -- BEGIN
---     bad_words := ('shit', 'awful', 'govno');
+--     bad_words(1) := ' shit';
+--     bad_words(2) := ' awful';
+--     bad_words(3) := ' ass ';
+--     bad_words(4) := ' faggot';
+--     bad_words(5) := ' fuck';
+--     bad_words(6) := ' damn ';
+--     bad_words(7) := ' pissflaps';
+--     bad_words(8) := ' piss off';
+--     bad_words(9) := ' dick';
 --     FOR i IN 1..bad_words.count LOOP
 --         IF (LOWER(:NEW.review_desc) LIKE '%' || bad_words(i) || '%') THEN
 --             raise_application_error(-20001, 'Cannot insert review with inappropriate language.');
