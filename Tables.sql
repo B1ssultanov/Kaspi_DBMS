@@ -1,3 +1,8 @@
+--IMPORTANT!!!!---
+-- ALTER TABLE MP2_Orders
+-- ADD order_returned VARCHAR2(50);
+
+
 -- Creating Products Category table
 
 -- CREATE TABLE MP2_Products_category (
