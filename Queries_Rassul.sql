@@ -1,12 +1,9 @@
 EXCEPTIONS:
-
-Query to update a customer’s wallet balance with an exception handler for a nonexistent customer:
-1. DECLARE
+1.  DECLARE
   v_cust_id NUMBER := 101;
   v_wallet_amount NUMBER := 100;
   
   e_no_customer EXCEPTION;
-  PRAGMA EXCEPTION_INIT(e_no_customer, -2291);
 BEGIN
   UPDATE MP2_Customers
   SET Cust_Wallet = Cust_Wallet + v_wallet_amount
@@ -22,7 +19,6 @@ EXCEPTION
     dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found.');
 END;
 
-Query to insert a new product with an exception handler for unique constraint violation:
 2. DECLARE
   v_prod_id NUMBER := 1;
   v_prod_name VARCHAR2(50) := 'Apple iPhone 13 Pro';
@@ -34,7 +30,6 @@ Query to insert a new product with an exception handler for unique constraint vi
   v_prod_status NUMBER := 1;
   
   e_unique_violation EXCEPTION;
-  PRAGMA EXCEPTION_INIT(e_unique_violation, -1);
 BEGIN
   INSERT INTO MP2_Products (Prod_id, Prod_name, Prod_Category, Prod_weight, Prod_description, Prod_price, Prod_in_stock, Prod_status)
   VALUES (v_prod_id, v_prod_name, v_prod_category, v_prod_weight, v_prod_description, v_prod_price, v_prod_in_stock, v_prod_status);
@@ -46,8 +41,6 @@ END;
 
 
 TRIGGERS :
-
-Trigger to maintain *order_weight_status* when a new order is inserted:
 1. CREATE OR REPLACE TRIGGER tr_set_order_weight_status
 BEFORE INSERT ON MP2_Orders
 FOR EACH ROW
@@ -71,7 +64,7 @@ EXCEPTION
     RAISE_APPLICATION_ERROR(-20001, 'Product not found for the given product_id.');
 END;
 
-Trigger to update *Prod_in_stock* after an order is inserted:
+
 2. CREATE OR REPLACE TRIGGER tr_update_product_stock
 AFTER INSERT ON MP2_Orders
 FOR EACH ROW
@@ -98,7 +91,6 @@ END;
 
 TRANSACTIONS:
 
-Purchase a product by deducting the wallet balance of a customer and updating the product stock:
 1. DECLARE
   v_customer_id NUMBER := 1;
   v_product_id NUMBER := 2;
@@ -154,7 +146,7 @@ BEGIN
   WHERE Prod_id = v_product_id;
 
   UPDATE MP2_Orders
-  SET order_weight_status = 'Returned'
+  SET order_returned = 1 
   WHERE order_id = v_order_id;
 
   SELECT COUNT(*) INTO v_refund_amount FROM MP2_Customers WHERE Cust_ID = v_customer_id;
@@ -175,54 +167,6 @@ END;
 /
 
 
-This transaction will refund the customer’s wallet, increase the product stock, and update the order status to ‘Returned’. 
-3. DECLARE
-  v_order_id NUMBER := 1;
-  v_product_id NUMBER;
-  v_customer_id NUMBER;
-  v_refund_amount NUMBER;
-  v_order_price NUMBER;
-
-BEGIN
-   SAVEPOINT sp_process_return;
-
-  SELECT product_id, customer_id, order_price
-  INTO v_product_id, v_customer_id, v_order_price
-  FROM MP2_Orders
-  WHERE order_id = v_order_id;
-
-  UPDATE MP2_Customers
-  SET Cust_Wallet = Cust_Wallet + v_order_price
-  WHERE Cust_ID = v_customer_id;
-
-  UPDATE MP2_Products
-  SET Prod_in_stock = Prod_in_stock + 1
-  WHERE Prod_id = v_product_id;
-
-   UPDATE MP2_Orders
-  SET order_weight_status = 'Returned'
-  WHERE order_id = v_order_id;
-
-    SELECT COUNT(*) INTO v_refund_amount FROM MP2_Customers WHERE Cust_ID = v_customer_id;
-
-  IF v_refund_amount = v_order_price THEN
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Return successful, customer wallet and product stock updated');
-  ELSE
-    ROLLBACK TO sp_process_return;
-    DBMS_OUTPUT.PUT_LINE('Return failed, rollback to the savepoint');
-  END IF;
-
-EXCEPTION
-  WHEN OTHERS THEN
-    ROLLBACK;
-    DBMS_OUTPUT.PUT_LINE('Error occurred, rollback: ' || SQLERRM);
-END;
-/
-
-
-This PL/SQL procedure *purchase_product_for_all_customers* is designed to simulate the purchase of a specific product by all customers. 
-MORE AUTOMATIC WITH PROCEDURE:
 1. CREATE OR REPLACE PROCEDURE purchase_product_for_all_customers(p_product_id NUMBER, p_purchase_amount NUMBER)
 AS
   v_updated_rows NUMBER;
