@@ -1,3 +1,26 @@
+Обновляет кошелек Покупателя
+
+DECLARE
+  v_cust_id NUMBER := 2;
+  v_wallet_amount NUMBER := 100;
+  e_no_customer EXCEPTION;
+BEGIN
+  UPDATE MP2_Customers
+  SET Cust_Wallet = Cust_Wallet + v_wallet_amount
+  WHERE Cust_ID = v_cust_id;
+  
+  IF SQL%ROWCOUNT = 0 THEN
+    RAISE e_no_customer;
+  END IF;
+  
+  COMMIT;
+EXCEPTION
+  WHEN e_no_customer THEN
+    dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found.');
+END;
+
+
+
 Эта процедура извлекает сведения о заказе на основе идентификатора заказа, предоставленного в качестве входных данных. 
 Он объединяет таблицы mp2_orders, mp2_customers и mp2_products
 
