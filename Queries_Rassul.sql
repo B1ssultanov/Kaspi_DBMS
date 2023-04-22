@@ -1,44 +1,3 @@
-EXCEPTIONS:
-1.  DECLARE
-  v_cust_id NUMBER := 101;
-  v_wallet_amount NUMBER := 100;
-  
-  e_no_customer EXCEPTION;
-BEGIN
-  UPDATE MP2_Customers
-  SET Cust_Wallet = Cust_Wallet + v_wallet_amount
-  WHERE Cust_ID = v_cust_id;
-  
-  IF SQL%ROWCOUNT = 0 THEN
-    RAISE e_no_customer;
-  END IF;
-  
-  COMMIT;
-EXCEPTION
-  WHEN e_no_customer THEN
-    dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found.');
-END;
-
-2. DECLARE
-  v_prod_id NUMBER := 1;
-  v_prod_name VARCHAR2(50) := 'Apple iPhone 13 Pro';
-  v_prod_category NUMBER := 1;
-  v_prod_weight FLOAT := 0.2;
-  v_prod_description VARCHAR2(4000) := 'The latest iPhone with Pro features';
-  v_prod_price NUMBER := 999;
-  v_prod_in_stock NUMBER := 100;
-  v_prod_status NUMBER := 1;
-  
-  e_unique_violation EXCEPTION;
-BEGIN
-  INSERT INTO MP2_Products (Prod_id, Prod_name, Prod_Category, Prod_weight, Prod_description, Prod_price, Prod_in_stock, Prod_status)
-  VALUES (v_prod_id, v_prod_name, v_prod_category, v_prod_weight, v_prod_description, v_prod_price, v_prod_in_stock, v_prod_status);
-  COMMIT;
-EXCEPTION
-  WHEN e_unique_violation THEN
-    dbms_output.put_line('Error: Unique constraint violated. Product with ID ' || v_prod_id || ' already exists.');
-END;
-
 
 TRIGGERS :
 1. CREATE OR REPLACE TRIGGER tr_set_order_weight_status
@@ -92,37 +51,6 @@ END;
 TRANSACTIONS:
 
 1. DECLARE
-  v_customer_id NUMBER := 1;
-  v_product_id NUMBER := 2;
-  v_purchase_amount NUMBER := 129;
-BEGIN
-  SAVEPOINT sp_purchase_product;
-
-  UPDATE MP2_Customers
-  SET Cust_Wallet = Cust_Wallet - v_purchase_amount
-  WHERE Cust_ID = v_customer_id;
-
-  UPDATE MP2_Products
-  SET Prod_in_stock = Prod_in_stock - 1
-  WHERE Prod_id = v_product_id;
-
-
-  IF SQL%ROWCOUNT > 0 THEN
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Purchase successful, customer wallet and product stock updated');
-  ELSE
-    ROLLBACK TO sp_purchase_product;
-    DBMS_OUTPUT.PUT_LINE('Purchase failed, rollback to the savepoint');
-  END IF;
-EXCEPTION
-  WHEN OTHERS THEN
-    ROLLBACK;
-    DBMS_OUTPUT.PUT_LINE('Error occurred, rollback: ' || SQLERRM);
-END;
-
-
-
-2. DECLARE
   v_order_id NUMBER := 1;
   v_product_id NUMBER;
   v_customer_id NUMBER;
@@ -167,38 +95,7 @@ END;
 /
 
 
-1. CREATE OR REPLACE PROCEDURE purchase_product_for_all_customers(p_product_id NUMBER, p_purchase_amount NUMBER)
-AS
-  v_updated_rows NUMBER;
-BEGIN
-  SAVEPOINT sp_purchase_product_all_customers;
 
-  FOR cust_rec IN (SELECT Cust_ID FROM MP2_Customers)
-  LOOP
-    UPDATE MP2_Customers
-    SET Cust_Wallet = Cust_Wallet - p_purchase_amount
-    WHERE Cust_ID = cust_rec.Cust_ID;
-
-    UPDATE MP2_Products
-    SET Prod_in_stock = Prod_in_stock - 1
-    WHERE Prod_id = p_product_id;
-  END LOOP;
-
-  SELECT COUNT(*) INTO v_updated_rows FROM MP2_Customers;
-  
-  IF v_updated_rows > 0 THEN
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Purchase successful, all customer wallets and product stock updated');
-  ELSE
-    ROLLBACK TO sp_purchase_product_all_customers;
-    DBMS_OUTPUT.PUT_LINE('Purchase failed, rollback to the savepoint');
-  END IF;
-EXCEPTION
-  WHEN OTHERS THEN
-    ROLLBACK;
-    DBMS_OUTPUT.PUT_LINE('Error occurred, rollback: ' || SQLERRM);
-END purchase_product_for_all_customers;
-/
 
 
 This PL/SQL code defines a package named *MP2_HR* which contains two procedures: *ManageProductDiscount* and *AdjustEmployeeSalary*.
@@ -297,31 +194,8 @@ END MP2_Management;
 
 CURSOR:
 
-This PL/SQL block declares and uses a cursor named *product_categories_cur* to fetch data from the *MP2_Products* and *MP2_Products_category* tables.
-1. DECLARE
-  CURSOR product_categories_cur IS
-    SELECT P.Prod_id, P.Prod_name, C.prod_cat_category
-    FROM MP2_Products P
-    JOIN MP2_Products_category C ON P.Prod_Category = C.Prod_cat_id;
-
-  v_product_id NUMBER;
-  v_product_name VARCHAR2(50);
-  v_product_category VARCHAR2(50);
-BEGIN
-  OPEN product_categories_cur;
-
-  LOOP
-    FETCH product_categories_cur INTO v_product_id, v_product_name, v_product_category;
-    EXIT WHEN product_categories_cur%NOTFOUND;
-
-    DBMS_OUTPUT.PUT_LINE('Product ID: ' || v_product_id || ', Product Name: ' || v_product_name || ', Category: ' || v_product_category);
-  END LOOP;
-
-  CLOSE product_categories_cur;
-END;
-
 This PL/SQL block declares and uses a cursor named *customer_orders_cur* to fetch aggregated data related to the total order price for each customer from the *MP2_Customers* and *MP2_orders* tables.
-2. DECLARE
+1. DECLARE
   CURSOR customer_orders_cur IS
     SELECT C.Cust_ID, C.Cust_Name, C.Cust_Surname, SUM(O.order_price) as total_order_price
     FROM MP2_Customers C
@@ -349,34 +223,6 @@ END;
 This code first creates a view named *MP2_Customer_Wallet_Total* displaying customer wallet information, and then retrieves and displays the wallet amount of a specified customer (with ID 1) using a PL/SQL block. If the customer is not found, it shows an error message.
 
 VIEW:
-1. CREATE OR REPLACE VIEW MP2_Customer_Wallet_Total AS
-SELECT
-  Cust_ID,
-  Cust_Name,
-  Cust_Email,
-  Cust_Wallet
-FROM
-  MP2_Customers;
-
-PL/SQL:
-
-DECLARE
-  v_cust_id NUMBER := 1;
-  v_wallet_amount NUMBER;
-BEGIN
-  SELECT Cust_Wallet
-  INTO v_wallet_amount
-  FROM MP2_Customer_Wallet_Total
-  WHERE Cust_ID = v_cust_id;
-
-  DBMS_OUTPUT.PUT_LINE('Customer ' || v_cust_id || ' has a wallet amount of ' || v_wallet_amount);
-
-EXCEPTION
-  WHEN NO_DATA_FOUND THEN
-    DBMS_OUTPUT.PUT_LINE('Error: Customer with ID ' || v_cust_id || ' not found in MP2_Customer_Wallet_Total view.');
-END;
-/
-
 
 This code creates a view named *MP2_Customer_Total_Orders* that displays the total number of orders for each customer. It groups the data by customer ID and name and uses a LEFT JOIN to include customers who have no orders as well.
 
