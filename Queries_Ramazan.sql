@@ -184,5 +184,21 @@ found for the given date.' Otherwise, we display the total sales using the DBMS_
 
 We also have exception handling in case there are any other errors while processing the request. 
 If an error occurs, we display the error message using SQLERRM.
+5).CREATE OR REPLACE FUNCTION Get_Avg_Price_By_Category (p_category IN MP2_Products.Prod_Category%TYPE)
+RETURN NUMBER
+IS
+  v_avg_price NUMBER;
+BEGIN
+  SELECT AVG(Prod_Price)
+  INTO v_avg_price
+  FROM MP2_Products
+  WHERE Prod_Category = p_category;
 
+  RETURN v_avg_price;
+
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    RETURN NULL;
+END Get_Avg_Price_By_Category;
+/
 
