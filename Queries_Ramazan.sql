@@ -84,7 +84,9 @@ This will return a single row with the number of records in the MP2_Products tab
 
 
 
-1.1(2) 
+This that work and i writed code on pl sql
+
+1.1(2) Function 
 CREATE OR REPLACE FUNCTION MP2_Insert_Product(
   p_Prod_Name IN VARCHAR2,
   p_Prod_Category IN NUMBER,
@@ -131,6 +133,29 @@ EXCEPTION
   WHEN Prod_Description_Too_Short THEN
     DBMS_OUTPUT.PUT_LINE('Product description must be at least 100 characters long.');
     RETURN FALSE;
+END;
+ 
+
+3.Eception
+DECLARE
+  CURSOR product_categories_cur IS
+    SELECT P.Prod_id, P.Prod_name, C.prod_cat_category
+    FROM MP2_Products P
+    JOIN MP2_Products_category C ON P.Prod_Category = C.Prod_cat_id;
+    v_product_id NUMBER;
+    v_product_name VARCHAR2(50);
+    v_product_category VARCHAR2(50);
+BEGIN
+  OPEN product_categories_cur;
+
+  LOOP
+    FETCH product_categories_cur INTO v_product_id, v_product_name, v_product_category;
+    EXIT WHEN product_categories_cur%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('Product ID: '  v_product_id  ', Product Name: '  v_product_name  ', Category: ' || v_product_category);
+  END LOOP;
+
+  CLOSE product_categories_cur;
 END;
 
 
