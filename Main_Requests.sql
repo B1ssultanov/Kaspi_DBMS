@@ -239,3 +239,157 @@
 --   WHEN e_unique_violation THEN
 --     dbms_output.put_line('Error: Unique constraint violated. Product with ID '  v_prod_id  ' already exists.');
 -- END;
+
+
+
+
+-- RASSUL
+
+-- TRIGGERS:
+
+-- 1. CREATE OR REPLACE TRIGGER tr_set_order_weight_status
+-- BEFORE INSERT ON MP2_Orders
+-- FOR EACH ROW
+-- DECLARE
+--   v_product_weight FLOAT;
+-- BEGIN
+--   SELECT Prod_weight
+--   INTO v_product_weight
+--   FROM MP2_Products
+--   WHERE Prod_id = :NEW.product_id;
+
+--   IF v_product_weight <= 1 THEN
+--     :NEW.order_weight_status := 'Underweight';
+--   ELSIF v_product_weight <= 5 THEN
+--     :NEW.order_weight_status := 'Normal';
+--   ELSE
+--     :NEW.order_weight_status := 'Overweight';
+--   END IF;
+-- EXCEPTION
+--   WHEN NO_DATA_FOUND THEN
+--     RAISE_APPLICATION_ERROR(-20001, 'Product not found for the given product_id.');
+-- END;
+
+
+
+
+-- PACKAGE:
+
+-- 1. CREATE OR REPLACE PACKAGE MP2_Management AS
+--   PROCEDURE RestockProduct (p_product_id IN NUMBER, p_quantity IN NUMBER);
+--   PROCEDURE AddFundsToWallet (p_customer_id IN NUMBER, p_amount IN NUMBER);
+-- END MP2_Management;
+-- /
+-- CREATE OR REPLACE PACKAGE BODY MP2_Management AS
+--   PROCEDURE RestockProduct (p_product_id IN NUMBER, p_quantity IN NUMBER) IS
+--   BEGIN
+--     UPDATE MP2_Products
+--     SET Prod_in_stock = Prod_in_stock + p_quantity
+--     WHERE Prod_id = p_product_id;
+
+--     DBMS_OUTPUT.PUT_LINE('Product ' || p_product_id || ' restocked with ' || p_quantity || ' units.');
+--   EXCEPTION
+--     WHEN OTHERS THEN
+--       DBMS_OUTPUT.PUT_LINE('Error occurred while restocking: ' || SQLERRM);
+--   END RestockProduct;
+
+--   PROCEDURE AddFundsToWallet (p_customer_id IN NUMBER, p_amount IN NUMBER) IS
+--   BEGIN
+--     UPDATE MP2_Customers
+--     SET Cust_Wallet = Cust_Wallet + p_amount
+--     WHERE Cust_ID = p_customer_id;
+
+--     DBMS_OUTPUT.PUT_LINE('Customer ' || p_customer_id || ' wallet updated with ' || p_amount || ' amount.');
+--   EXCEPTION
+--     WHEN OTHERS THEN
+--       DBMS_OUTPUT.PUT_LINE('Error occurred while adding funds to wallet: ' || SQLERRM);
+--   END AddFundsToWallet;
+
+-- END MP2_Management;
+-- /
+
+
+
+
+
+-- RECORD: 
+
+
+
+-- 1. DECLARE
+--   TYPE Customer_Order_Record IS RECORD (
+--     customer_id       MP2_Customers.Cust_ID%TYPE,
+--     customer_name     MP2_Customers.Cust_Name%TYPE,
+--     order_count       NUMBER
+--   );
+
+--   TYPE Customer_Order_Table IS TABLE OF Customer_Order_Record INDEX BY PLS_INTEGER;
+--   v_customer_order_list Customer_Order_Table;
+
+-- BEGIN
+--   DECLARE
+--     CURSOR c_customer_order IS
+--       SELECT C.Cust_ID, C.Cust_Name, COUNT(O.Order_ID) as Order_Count
+--       FROM MP2_Customers C
+--       LEFT JOIN MP2_Orders O ON C.Cust_ID = O.Customer_ID
+--       GROUP BY C.Cust_ID, C.Cust_Name;
+      
+--     v_index PLS_INTEGER := 1;
+--   BEGIN
+--     FOR rec IN c_customer_order LOOP
+--       v_customer_order_list(v_index).customer_id := rec.Cust_ID;
+--       v_customer_order_list(v_index).customer_name := rec.Cust_Name;
+--       v_customer_order_list(v_index).order_count := rec.Order_Count;
+--       v_index := v_index + 1;
+--     END LOOP;
+
+--     -- Display customer order counts
+--     FOR i IN 1..v_customer_order_list.COUNT LOOP
+--       DBMS_OUTPUT.PUT_LINE('Customer ID: ' || v_customer_order_list(i).customer_id || ', Customer Name: ' || v_customer_order_list(i).customer_name || ', Order Count: ' || v_customer_order_list(i).order_count);
+--     END LOOP;
+--   END;
+-- END;
+-- /
+
+
+
+-- 2. DECLARE
+--   TYPE Product_Discount_Record IS RECORD (
+--     product_id          MP2_Products.Prod_ID%TYPE,
+--     product_name        MP2_Products.Prod_Name%TYPE,
+--     discount_id         MP2_Discount.Discounts_ID%TYPE,
+--     discount_event      MP2_Discount.Discount_event%TYPE,
+--     discount_start_day  MP2_Discount.Discount_start_day%TYPE,
+--     discount_duration   MP2_Discount.Discount_duration%TYPE
+--   );
+
+--   v_product_discount_details Product_Discount_Record;
+
+-- BEGIN
+--   SELECT P.Prod_ID, P.Prod_Name, D.Discounts_ID, D.Discount_event, D.Discount_start_day, D.Discount_duration
+--   INTO v_product_discount_details
+--   FROM MP2_Products P
+--   LEFT JOIN MP2_Discount D ON P.Prod_ID = D.Product_id
+--   WHERE P.Prod_ID = 1; -- Replace this with the product ID you want to check
+
+--   DBMS_OUTPUT.PUT_LINE('Product ID: ' || v_product_discount_details.product_id);
+--   DBMS_OUTPUT.PUT_LINE('Product Name: ' || v_product_discount_details.product_name);
+--   IF v_product_discount_details.discount_id IS NOT NULL THEN
+--     DBMS_OUTPUT.PUT_LINE('Discount ID: ' || v_product_discount_details.discount_id);
+--     DBMS_OUTPUT.PUT_LINE('Discount Event: ' || v_product_discount_details.discount_event);
+--     DBMS_OUTPUT.PUT_LINE('Discount Start Day: ' || TO_CHAR(v_product_discount_details.discount_start_day, 'DD-MON-YYYY'));
+--     DBMS_OUTPUT.PUT_LINE('Discount Duration: ' || v_product_discount_details.discount_duration || ' days');
+--   ELSE
+--     DBMS_OUTPUT.PUT_LINE('No discount information found for this product.');
+--   END IF;
+  
+-- EXCEPTION
+--   WHEN NO_DATA_FOUND THEN
+--     DBMS_OUTPUT.PUT_LINE('No product found with the given ID.');
+--   WHEN OTHERS THEN
+--     DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+-- END;
+-- /
+
+
+
