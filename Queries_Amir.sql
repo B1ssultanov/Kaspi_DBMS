@@ -1,3 +1,18 @@
+Row Count 
+
+Procedure which uses SQL%ROWCOUNT to determine the number of rows affected
+CREATE OR REPLACE PROCEDURE update_employee_salary(emp_id IN NUMBER, emp_new_salary IN NUMBER) AS
+BEGIN
+  UPDATE MP2_EMPLOYEES SET salary = emp_new_salary WHERE Employee_id = emp_id;
+  DBMS_OUTPUT.PUT_LINE('Number of rows affected: ' || SQL%ROWCOUNT);
+END;
+
+BEGIN
+  update_employee_salary(2, 5000);
+END;
+
+
+
 View который показывает баланс Кошелька Пользователя
 
 CREATE OR REPLACE VIEW MP2_Customer_Wallet_Total AS
