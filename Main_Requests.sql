@@ -1,3 +1,36 @@
+Amirkhan
+Эта процедура извлекает сведения о заказе на основе идентификатора заказа, предоставленного в качестве входных данных. 
+Он объединяет таблицы mp2_orders, mp2_customers и mp2_products
+
+CREATE OR REPLACE PROCEDURE Get_Order_Details (p_order_id IN INT)
+IS
+  v_order_weight_status VARCHAR2(50);
+  v_order_price NUMBER(10,2);
+  v_customer_name VARCHAR2(100);
+  v_customer_address VARCHAR2(200);
+  v_product_name VARCHAR2(100);
+BEGIN
+  SELECT order_weight_status, order_price, cust_name, cust_address, prod_name
+  INTO v_order_weight_status, v_order_price, v_customer_name, v_customer_address, v_product_name
+  FROM mp2_orders o
+  JOIN mp2_customers c ON o.customer_id = c.cust_id
+  JOIN mp2_products p ON o.product_id = p.prod_id
+  WHERE o.order_id = p_order_id;
+  
+  DBMS_OUTPUT.PUT_LINE('Order ID: ' || p_order_id);
+  DBMS_OUTPUT.PUT_LINE('Order Status: ' || v_order_weight_status);
+  DBMS_OUTPUT.PUT_LINE('Order Price: $' || v_order_price);
+  DBMS_OUTPUT.PUT_LINE('Customer Name: ' || v_customer_name);
+  DBMS_OUTPUT.PUT_LINE('Customer Address: ' || v_customer_address);
+  DBMS_OUTPUT.PUT_LINE('Product Name: ' || v_product_name);
+END;
+
+
+
+
+
+
+
 
 Abylay 
 
