@@ -217,6 +217,30 @@
 --     RETURN NULL;
 -- END Get_Avg_Price_By_Category;
 
+1.2
+--CREATE OR REPLACE FUNCTION MP2_GroupByCategory2
+--RETURN VARCHAR2
+--IS
+--  v_result VARCHAR2(2000) := '';
+--BEGIN
+--  FOR rec IN (SELECT c.prod_cat_category, COUNT(*) AS total_products, AVG(p.prod_price) AS avg_price
+--              FROM MP2_Products p
+--              JOIN MP2_Products_category c ON p.prod_category = c.prod_cat_id
+--              GROUP BY c.prod_cat_category)
+--  LOOP
+--    v_result := v_result || rec.prod_cat_category || ' - Total Products: ' || rec.total_products || ', Avg. Price: ' || rec.avg_price || CHR(10);
+--  END LOOP;
+--
+--  RETURN v_result;
+--END;
+--
+--DECLARE
+--  v_result VARCHAR2(2000);
+--BEGIN
+--  v_result := MP2_GroupByCategory2();
+--  DBMS_OUTPUT.PUT_LINE(v_result);
+--END;
+
 
 -- 2. Exeption
 -- DECLARE
