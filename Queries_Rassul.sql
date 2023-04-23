@@ -1,5 +1,6 @@
-
 TRIGGERS :
+
+Trigger to maintain *order_weight_status* when a new order is inserted:
 1. CREATE OR REPLACE TRIGGER tr_set_order_weight_status
 BEFORE INSERT ON MP2_Orders
 FOR EACH ROW
@@ -24,6 +25,9 @@ EXCEPTION
 END;
 
 
+
+
+Trigger to update *Prod_in_stock* after an order is inserted:
 2. CREATE OR REPLACE TRIGGER tr_update_product_stock
 AFTER INSERT ON MP2_Orders
 FOR EACH ROW
@@ -48,6 +52,7 @@ EXCEPTION
 END;
 
 
+
 TRANSACTIONS:
 
 1. DECLARE
@@ -59,10 +64,9 @@ TRANSACTIONS:
 
 BEGIN
   SAVEPOINT sp_process_return;
-
   SELECT product_id, customer_id, order_price
   INTO v_product_id, v_customer_id, v_order_price
-  FROM MP2_Orders
+ FROM MP2_Orders
   WHERE order_id = v_order_id;
 
   UPDATE MP2_Customers
@@ -77,29 +81,24 @@ BEGIN
   SET order_returned = 1 
   WHERE order_id = v_order_id;
 
-  SELECT COUNT(*) INTO v_refund_amount FROM MP2_Customers WHERE Cust_ID = v_customer_id;
-
+  SELECT COUNT(*) INTO v_refund_amount FROM MP2_Customers 		 WHERE Cust_ID = v_customer_id;
   IF v_refund_amount = v_order_price THEN
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Return successful, customer wallet and product stock updated');
+    DBMS_OUTPUT.PUT_LINE(‘Return successful, customer wallet and product stock updated’);
   ELSE
     ROLLBACK TO sp_process_return;
-    DBMS_OUTPUT.PUT_LINE('Return failed, rollback to the savepoint');
+    DBMS_OUTPUT.PUT_LINE(‘Return failed, rollback to the savepoint’);
   END IF;
 
 EXCEPTION
   WHEN OTHERS THEN
     ROLLBACK;
-    DBMS_OUTPUT.PUT_LINE('Error occurred, rollback: ' || SQLERRM);
+    DBMS_OUTPUT.PUT_LINE(‘Error occurred, rollback: ‘ || SQLERRM);
 END;
 /
 
+PROCEDURE AND PACKAGES:
 
-
-
-
-This PL/SQL code defines a package named *MP2_HR* which contains two procedures: *ManageProductDiscount* and *AdjustEmployeeSalary*.
-PACKAGES WITH PROCEDURES:
 1. CREATE OR REPLACE PACKAGE MP2_HR AS
   PROCEDURE ManageProductDiscount (p_product_id IN NUMBER, p_discount_event IN VARCHAR2, p_discount_start_day IN DATE, p_discount_duration IN NUMBER);
   PROCEDURE AdjustEmployeeSalary (p_employee_id IN NUMBER, p_new_salary IN NUMBER);
@@ -157,7 +156,7 @@ CREATE SEQUENCE MP2_Discount_SEQ
   CACHE 20;
 
 
-This PL/SQL code defines a package named *MP2_Management* which contains two procedures: *RestockProduct* and *AddFundsToWallet*.
+
 2. CREATE OR REPLACE PACKAGE MP2_Management AS
   PROCEDURE RestockProduct (p_product_id IN NUMBER, p_quantity IN NUMBER);
   PROCEDURE AddFundsToWallet (p_customer_id IN NUMBER, p_amount IN NUMBER);
@@ -192,9 +191,9 @@ END MP2_Management;
 /
 
 
-CURSOR:
 
-This PL/SQL block declares and uses a cursor named *customer_orders_cur* to fetch aggregated data related to the total order price for each customer from the *MP2_Customers* and *MP2_orders* tables.
+CURSORS: 
+
 1. DECLARE
   CURSOR customer_orders_cur IS
     SELECT C.Cust_ID, C.Cust_Name, C.Cust_Surname, SUM(O.order_price) as total_order_price
@@ -220,14 +219,11 @@ BEGIN
 END;
 
 
-This code first creates a view named *MP2_Customer_Wallet_Total* displaying customer wallet information, and then retrieves and displays the wallet amount of a specified customer (with ID 1) using a PL/SQL block. If the customer is not found, it shows an error message.
 
-VIEW:
-
-This code creates a view named *MP2_Customer_Total_Orders* that displays the total number of orders for each customer. It groups the data by customer ID and name and uses a LEFT JOIN to include customers who have no orders as well.
+VIEWS: 
 
 
-2. CREATE OR REPLACE VIEW MP2_Customer_Total_Orders AS
+1. CREATE OR REPLACE VIEW MP2_Customer_Total_Orders AS
 SELECT
   C.Cust_ID,
   C.Cust_Name,
@@ -240,8 +236,9 @@ GROUP BY
   C.Cust_Name;
 
 
-This code creates a PL/SQL function named *Get_Avg_Price_By_Category* that calculates the average price of products within a specified category. The function takes a single input parameter, *p_category*, and returns the average price as a NUMBER.
-FUNCTIONS:
+
+FUNCTIONS: 
+
 1. CREATE OR REPLACE FUNCTION Get_Avg_Price_By_Category (p_category IN MP2_Products.Prod_Category%TYPE)
 RETURN NUMBER
 IS
@@ -260,7 +257,7 @@ EXCEPTION
 END Get_Avg_Price_By_Category;
 /
 
-This code creates a PL/SQL function named *Count_Customer_Orders* that calculates the total number of orders made by a specified customer. The function takes a single input parameter, *p_cust_id*, and returns the order count as a NUMBER.
+
 2. CREATE OR REPLACE FUNCTION Count_Customer_Orders (p_cust_id IN MP2_Customers.Cust_ID%TYPE)
 RETURN NUMBER
 IS
@@ -278,11 +275,6 @@ EXCEPTION
     RETURN 0;
 END Count_Customer_Orders;
 /
-
-
-This code declares a PL/SQL anonymous block that defines a record type called *Order_Record* with three fields: order_id, customer_id, and product_id. It fetches an order with a specific Order_ID (in this case, 10) from the MP2_Orders table, stores the result in a variable named *v_order_details* of type Order_Record, and then prints the order details using DBMS_OUTPUT.PUT_LINE.
-
-
 
 
 
@@ -311,8 +303,6 @@ EXCEPTION
 END;
 /
 
-
-This PL/SQL anonymous block declares a record type called *Product_Discount_Record* with six fields to store product and discount information. The block retrieves a product’s details, along with any associated discount, and prints the data using DBMS_OUTPUT.PUT_LINE. If no discount information is found for the product, a message is displayed indicating that there is no discount information.
 2. DECLARE
   TYPE Product_Discount_Record IS RECORD (
     product_id          MP2_Products.Prod_ID%TYPE,
@@ -353,50 +343,9 @@ END;
 
 
 
-This PL/SQL anonymous block declares a record type named *Discount_Record* and a nested table type named *Discount_Table*. It fetches and stores product and discount information from the MP2_Products and MP2_Discount tables in a table of the Discount_Record type, then iterates through the table and prints the product ID, product name, and discount event (or «No Discount Event» if there is none) using DBMS_OUTPUT.PUT_LINE.
-
-
-
-
-
 COLLECTION:
+
 1. DECLARE
-  TYPE Discount_Record IS RECORD (
-    product_id      MP2_Products.Prod_ID%TYPE,
-    product_name    MP2_Products.Prod_Name%TYPE,
-    discount_event  MP2_Discount.Discount_event%TYPE
-  );
-
-  TYPE Discount_Table IS TABLE OF Discount_Record INDEX BY PLS_INTEGER;
-  v_discount_list Discount_Table;
-
-BEGIN
-  DECLARE
-    CURSOR c_discount IS
-      SELECT P.Prod_ID, P.Prod_Name, D.Discount_event
-      FROM MP2_Products P
-      LEFT JOIN MP2_Discount D ON P.Prod_ID = D.Product_id;
-      
-    v_index PLS_INTEGER := 1;
-  BEGIN
-    FOR rec IN c_discount LOOP
-      v_discount_list(v_index).product_id := rec.Prod_ID;
-      v_discount_list(v_index).product_name := rec.Prod_Name;
-      v_discount_list(v_index).discount_event := rec.Discount_event;
-      v_index := v_index + 1;
-    END LOOP;
-
-    -- Display discounts
-    FOR i IN 1..v_discount_list.COUNT LOOP
-      DBMS_OUTPUT.PUT_LINE('Product ID: ' || v_discount_list(i).product_id || ', Product Name: ' || v_discount_list(i).product_name || ', Discount Event: ' || NVL(v_discount_list(i).discount_event, 'No Discount Event'));
-    END LOOP;
-  END;
-END;
-/
-
-
-This PL/SQL anonymous block declares a record type named *Customer_Order_Record* and a nested table type named *Customer_Order_Table*. It fetches and stores customer information and their order count from the MP2_Customers and MP2_Orders tables in a table of the Customer_Order_Record type, then iterates through the table and prints the customer ID, customer name, and order count using DBMS_OUTPUT.PUT_LINE.
-2. DECLARE
   TYPE Customer_Order_Record IS RECORD (
     customer_id       MP2_Customers.Cust_ID%TYPE,
     customer_name     MP2_Customers.Cust_Name%TYPE,
