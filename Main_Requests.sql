@@ -25,6 +25,52 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('Product Name: ' || v_product_name);
 END;
 
+View который показывает баланс Кошелька Пользователя
+
+CREATE OR REPLACE VIEW MP2_Customer_Wallet_Total AS
+SELECT
+  Cust_ID,
+  Cust_Name,
+  Cust_Email,
+  Cust_Wallet
+FROM
+  MP2_Customers;
+DECLARE
+  v_cust_id NUMBER := 2;
+  v_wallet_amount NUMBER;
+BEGIN
+  SELECT Cust_Wallet
+  INTO v_wallet_amount
+  FROM MP2_Customer_Wallet_Total
+  WHERE Cust_ID = v_cust_id;
+
+  dbms_output.put_line('Customer ' || v_cust_id || ' has a wallet amount of ' || v_wallet_amount);
+
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found in MP2_Customer_Wallet_Total view.');
+END;
+
+Обновляет кошелек Пользователя Курсор
+
+DECLARE
+  v_cust_id NUMBER := 2;
+  v_wallet_amount NUMBER := 100;
+  e_no_customer EXCEPTION;
+BEGIN
+  UPDATE MP2_Customers
+  SET Cust_Wallet = Cust_Wallet + v_wallet_amount
+  WHERE Cust_ID = v_cust_id;
+  
+  IF SQL%ROWCOUNT = 0 THEN
+    RAISE e_no_customer;
+  END IF;
+  
+  COMMIT;
+EXCEPTION
+  WHEN e_no_customer THEN
+    dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found.');
+END;
 
 
 
