@@ -158,5 +158,31 @@ BEGIN
   CLOSE product_categories_cur;
 END;
 
+4)
+BEGIN
+  DECLARE
+    total_sales NUMBER;
+    sales_date DATE := TO_DATE('2023-04-23', 'YYYY-MM-DD');
+  BEGIN
+    SELECT SUM(Prod_price) INTO total_sales FROM MP2_Orders WHERE Order_date = sales_date;
+    IF total_sales IS NULL THEN
+      RAISE_APPLICATION_ERROR(-20001, 'No sales found for the given date.');
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('Total sales on ' || sales_date || ' is ' || total_sales);
+    END IF;
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('No sales found for the given date.');
+    WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('An error occurred while processing the request: ' || SQLERRM);
+  END;
+END;
+
+In this query, we are trying to retrieve the total sales for a given date from the MP2_Orders table. 
+If no sales are found for the given date, we raise a custom exception with the message 'No sales 
+found for the given date.' Otherwise, we display the total sales using the DBMS_OUTPUT.PUT_LINE function.
+
+We also have exception handling in case there are any other errors while processing the request. 
+If an error occurs, we display the error message using SQLERRM.
 
 
