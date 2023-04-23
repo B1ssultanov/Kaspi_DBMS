@@ -57,20 +57,36 @@ DECLARE
   v_cust_id NUMBER := 2;
   v_wallet_amount NUMBER := 100;
   e_no_customer EXCEPTION;
-BEGIN
-  UPDATE MP2_Customers
-  SET Cust_Wallet = Cust_Wallet + v_wallet_amount
-  WHERE Cust_ID = v_cust_id;
   
-  IF SQL%ROWCOUNT = 0 THEN
+  CURSOR c_customers IS
+    SELECT Cust_ID, Cust_Wallet
+    FROM MP2_Customers
+    WHERE Cust_ID = v_cust_id
+    FOR UPDATE OF Cust_Wallet;
+    
+  r_customer c_customers%ROWTYPE;
+BEGIN
+  OPEN c_customers;
+  
+  FETCH c_customers INTO r_customer;
+  
+  IF c_customers%NOTFOUND THEN
+    CLOSE c_customers;
     RAISE e_no_customer;
   END IF;
   
+  UPDATE MP2_Customers
+  SET Cust_Wallet = r_customer.Cust_Wallet + v_wallet_amount
+  WHERE CURRENT OF c_customers;
+  
+  CLOSE c_customers;
   COMMIT;
+  
 EXCEPTION
   WHEN e_no_customer THEN
     dbms_output.put_line('Error: Customer with ID ' || v_cust_id || ' not found.');
 END;
+
 
 
 
