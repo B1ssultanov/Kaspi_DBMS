@@ -84,6 +84,54 @@ This will return a single row with the number of records in the MP2_Products tab
 
 
 
-2.2
+1.1(2) 
+CREATE OR REPLACE FUNCTION MP2_Insert_Product(
+  p_Prod_Name IN VARCHAR2,
+  p_Prod_Category IN NUMBER,
+  p_Prod_Weight IN FLOAT,
+  p_Prod_Description IN VARCHAR2,
+  p_Prod_Price IN NUMBER,
+  p_Prod_In_Stock IN NUMBER,
+  p_Prod_Status IN NUMBER
+) RETURN BOOLEAN
+IS
+  Prod_Title_Too_Short EXCEPTION;
+  Prod_Description_Too_Short EXCEPTION;
+BEGIN
+  IF LENGTH(p_Prod_Name) < 5 THEN
+    RAISE Prod_Title_Too_Short;
+  ELSIF LENGTH(p_Prod_Description) < 100 THEN
+    RAISE Prod_Description_Too_Short;
+  ELSE
+    INSERT INTO MP2_Products (
+      Prod_id,
+      Prod_name,
+      Prod_Category,
+      Prod_weight,
+      Prod_description,
+      Prod_price,
+      Prod_in_stock,
+      Prod_status
+    ) VALUES (
+      NULL,
+      p_Prod_Name,
+      p_Prod_Category,
+      p_Prod_Weight,
+      p_Prod_Description,
+      p_Prod_Price,
+      p_Prod_In_Stock,
+      p_Prod_Status
+    );
+    RETURN TRUE;
+  END IF;
+EXCEPTION
+  WHEN Prod_Title_Too_Short THEN
+    DBMS_OUTPUT.PUT_LINE('Product title must be at least 5 characters long.');
+    RETURN FALSE;
+  WHEN Prod_Description_Too_Short THEN
+    DBMS_OUTPUT.PUT_LINE('Product description must be at least 100 characters long.');
+    RETURN FALSE;
+END;
+
 
 
