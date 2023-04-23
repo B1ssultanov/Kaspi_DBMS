@@ -217,7 +217,7 @@
 --     RETURN NULL;
 -- END Get_Avg_Price_By_Category;
 
-1.2
+--1.2
 --CREATE OR REPLACE FUNCTION MP2_GroupByCategory2
 --RETURN VARCHAR2
 --IS
