@@ -1,5 +1,5 @@
 Mongo Db 
-1
+1 в промежутке времени у заказшика показывает сколько стоят вешь которую он покупает
 db.MP2_ORDERS.aggregate([
   {
     $match: {
@@ -29,6 +29,7 @@ db.MP2_ORDERS.aggregate([
 
 
 2
+выводит по заказшику все его заказы и название берет с другой коллекции
 db.MP2_ORDERS.aggregate([
   {
     $match: {
@@ -50,6 +51,48 @@ db.MP2_ORDERS.aggregate([
     }
   }
 ])
+
+
+3
+если продукты с браком их отзывают выводит имя и место доставки 3 колектион колданады
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      PRODUCT_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_SHIPS",
+      localField: "ORDER_ID",
+      foreignField: "SHIP_ORDER_ID",
+      as: "address"
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "prod"
+    }
+  },
+  {
+    $unwind: "$address"
+  },
+  {
+    $unwind: "$prod"
+  },
+  {
+    $project: {
+      _id: 0,
+      ShipInfo: "$address",
+      NAMEofPRODUCT:"$prod.PROD_NAME",
+      Descryption:"$prod.PROD_DESCRIPTION"
+    }
+  }
+])
+
 
 
 1.1CREATE OR REPLACE PROCEDURE MP2_GroupByCategory
