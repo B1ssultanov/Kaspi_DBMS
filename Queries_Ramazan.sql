@@ -1,3 +1,32 @@
+Mongo Db 
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      CUSTOMER_ID: 1,
+      ORDERS_DATE: {
+    		$gte: ISODate("2023-05-01T00:00:00Z"),
+    		$lte: ISODate("2023-08-31T23:59:59Z")
+  	}
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "product_info"
+    }
+  },
+  {
+    $group: {
+      _id: "$CUSTOMER_ID",
+      average_price: { $avg: "$ORDER_PRICE" },
+      products: { $push: "$product_info.PROD_NAME" }
+    }
+  }
+])
+
+
 1.1CREATE OR REPLACE PROCEDURE MP2_GroupByCategory
 IS
 BEGIN
