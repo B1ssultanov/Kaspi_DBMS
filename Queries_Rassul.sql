@@ -1,3 +1,30 @@
+MONGODB_QUERIES: 
+VIEW:
+db.createView(
+  "MP2_Customer_Total_Orders", 
+  "MP2_CUSTOMERS", 
+  [ 
+    {
+      $lookup: {
+        from: "MP2_ORDERS",
+        localField: "CUST_ID",
+        foreignField: "CUSTOMER_ID",
+        as: "customer_orders"
+      }
+    },
+    {
+      $project: {
+        CUST_ID: 1,
+        CUST_NAME: 1,
+        Total_Orders: { $size: "$customer_orders" }
+      }
+    }
+  ]
+)
+
+
+
+
 TRIGGERS :
 
 Trigger to maintain *order_weight_status* when a new order is inserted:
