@@ -21,7 +21,7 @@ db.MP2_ORDERS.aggregate([
     $group: {
       _id: "$CUSTOMER_ID",
       average_price: { $avg: "$ORDER_PRICE" },
-      products: { $push: "$product_info.PROD_NAME" }
+      products: { $push: {id:"$product_info.PROD_ID",name:"$product_info.PROD_NAME"} }
     }
   }
 ])
