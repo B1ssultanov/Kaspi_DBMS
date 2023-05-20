@@ -1,4 +1,5 @@
 Mongo Db 
+1
 db.MP2_ORDERS.aggregate([
   {
     $match: {
@@ -22,6 +23,30 @@ db.MP2_ORDERS.aggregate([
       _id: "$CUSTOMER_ID",
       average_price: { $avg: "$ORDER_PRICE" },
       products: { $push: {id:"$product_info.PROD_ID",name:"$product_info.PROD_NAME"} }
+    }
+  }
+])
+
+
+2
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      CUSTOMER_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "product_info"
+    }
+  },
+  {
+    $group: {
+      _id: "$CUSTOMER_ID",
+      products: { $push: {id:"$product_info.PROD_ID",order_id:"$ORDER_ID",name:"$product_info.PROD_NAME",date:"$ORDERS_DATE"} }
     }
   }
 ])
