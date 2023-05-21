@@ -1,4 +1,147 @@
 MONGODB_QUERIES: 
+
+1. Рассчитывет общий доход каждого поставщика за определенный период времени: Этот запрос можно использовать для определения  самых прибыльных поставщиков, что может быть полезно для принятия решений в области закупок.
+
+db.MP2_ORDERS.aggregate([
+  { $match: { ORDERS_DATE: { $gte: ISODate("2023-01-01T00:00:00Z"), $lte: ISODate("2023-12-31T23:59:59Z") } } },
+  { $lookup: { from: "MP2_VENDORS", localField: "PRODUCT_ID", foreignField: "PRODUCT_ID", as: "vendor_info" } },
+  { $unwind: "$vendor_info" },
+  { $group: { _id: "$vendor_info.VENDOR_NAME", totalRevenue: { $sum: "$ORDER_PRICE" } } },
+  { $sort: { totalRevenue: -1 } }
+]);
+
+
+2. Топ продуктов, приносящих наибольшую прибыль: Удобство использования этого запроса заключается в том, чтобы определить самые продаваемые или самые прибыльные продукты, чтобы можно было больше сосредоточиться на продвижении этих продуктов.
+
+db.MP2_ORDERS.aggregate([
+    {
+        $lookup: {
+            from: "MP2_PRODUCTS",
+            localField: "PRODUCT_ID",
+            foreignField: "PROD_ID",
+            as: "product_info"
+        }
+    },
+    {
+        $unwind: "$product_info"
+    },
+    {
+        $group: {
+            _id: "$PRODUCT_ID",
+            totalRevenue: { $sum: "$ORDER_PRICE" },
+            productName: { $first: "$product_info.PROD_NAME" }
+        }
+    },
+    {
+        $sort: { totalRevenue: -1 }
+    }
+])
+
+
+3. Расчет ценности клиента: Это прогноз чистой прибыли, относящейся ко всем будущим отношениям с клиентом. Это важно для маркетинговых решений, например, сколько денег вы можете позволить себе для привлечения нового клиента.
+
+
+db.MP2_ORDERS.aggregate([
+    {
+        $group: {
+            _id: "$CUSTOMER_ID",
+            totalRevenue: { $sum: "$ORDER_PRICE" }
+        }
+    },
+    {
+        $lookup: {
+            from: "MP2_CUSTOMERS",
+            localField: "_id",
+            foreignField: "CUST_ID",
+            as: "customer_info"
+        }
+    },
+    {
+        $unwind: "$customer_info"
+    },
+    {
+        $project: {
+            _id: 1,
+            customerName: "$customer_info.CUST_NAME",
+            customerEmail: "$customer_info.CUST_EMAIL",
+            totalRevenue: 1
+        }
+    },
+    {
+        $sort: { totalRevenue: -1 }
+    }
+])
+
+
+4. Прогнозирование запасов: Это имеет решающее значение для управления запасами, поскольку исчерпание запасов означает потерю возможности продаж, а слишком много запасов приводит к увеличению затрат на хранение.
+
+
+ db.MP2_ORDERS.aggregate([
+    {
+        $group: {
+            _id: "$PRODUCT_ID",
+            totalSold: { $sum: "$ORDER_QUANTITY" },
+            firstSaleDate: { $min: "$ORDERS_DATE" },
+            lastSaleDate: { $max: "$ORDERS_DATE" }
+        }
+    },
+    {
+        $addFields: {
+            salesDays: {
+                $divide: [
+                    { $subtract: [ "$lastSaleDate", "$firstSaleDate" ] },
+                    1000 * 60 * 60 * 24
+                ]
+            }
+        }
+    },
+    {
+        $addFields: {
+            salesPerDay: {
+                $cond: [ 
+                    { $eq: [ "$salesDays", 0 ] }, 
+                    0, 
+                    { $divide: [ "$totalSold", "$salesDays" ] } 
+                ]
+            }
+        }
+    },
+    {
+        $lookup: {
+            from: "MP2_PRODUCTS",
+            localField: "_id",
+            foreignField: "PROD_ID",
+            as: "product_info"
+        }
+    },
+    {
+        $unwind: "$product_info"
+    },
+    {
+        $addFields: {
+            daysUntilOutOfStock: {
+                $cond: [ 
+                    { $eq: [ "$salesPerDay", 0 ] }, 
+                    "Enough in stock", 
+                    { $divide: [ "$product_info.PROD_IN_STOCK", "$salesPerDay" ] } 
+                ]
+            }
+        }
+    },
+    {
+        $project: {
+            _id: 1,
+            salesPerDay: 1,
+            currentInventory: "$product_info.PROD_IN_STOCK",
+            daysUntilOutOfStock: 1
+        }
+    },
+    {
+        $sort: { daysUntilOutOfStock: 1 }
+    }
+])
+
+
 VIEW:
 db.createView(
   "MP2_Customer_Total_Orders", 
