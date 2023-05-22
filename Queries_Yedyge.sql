@@ -1,3 +1,93 @@
+-- MongoDB Queries
+-- All given Queryies solve User side problems to make users life easy.
+-- 1 This Query gives all discounts for the given product
+db.MP2_PRODUCTS.aggregate([
+  {
+    $match: {
+      PROD_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_DISCOUNTS",
+      localField: "PROD_ID",
+      foreignField: "PRODUCT_ID",
+      as: "discounts"
+    }
+  },
+  {
+    $unwind: "$discounts"
+  },
+  {
+    $project: {
+      _id: "$PROD_ID",
+      Product_Name: "$PROD_NAME",
+      Discount_Event: "$discounts"
+    }
+  }
+])
+
+-- 2 This Query gives to user all Reviews for Product
+db.MP2_PRODUCTS.aggregate([
+  {
+    $match: {
+      PROD_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_REVIEWS",
+      localField: "PROD_ID",
+      foreignField: "PROD_ID",
+      as: "reviews"
+    }
+  },
+  {
+    $unwind: "$reviews"
+  },
+  {
+    $project: {
+      _id: 0,
+      Review: "$reviews"
+    }
+  }
+])
+
+
+
+-- 3 This Query show all photos of product
+db.MP2_PHOTOS.aggregate([
+  {
+    $group: {
+      _id: "$PRODUCT_ID",
+      photos: {
+        $push: {
+          photo_id: "$PHOTO_ID",
+          photo_url: "$PHOTO_URL"
+        }
+      }
+    }
+  },
+  {
+    $match: {
+      _id: 1
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      photos: 1
+    }
+  }
+])
+
+
+
+
+
+
+
+
 -- VIEWS
 
 -- CREATE VIEW PRODUCT_CATEGORY_VIEW AS 
