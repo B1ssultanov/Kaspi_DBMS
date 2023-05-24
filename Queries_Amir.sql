@@ -1,3 +1,86 @@
+db.MP2_VENDORS.aggregate([
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "products"
+    }
+  },
+  {
+    $match: {
+      "products.PROD_WEIGHT": { $gt: 10 },
+      VENDOR_SUPPORTSTATUS: 1
+    }
+  }
+])
+
+
+
+db.MP2_ORDERS.aggregate([
+  {
+    $lookup: {
+      from: "MP2_CUSTOMERS",
+      localField: "CUSTOMER_ID",
+      foreignField: "CUST_ID",
+      as: "customer"
+    }
+  },
+  {
+    $group: {
+      _id: "$CUSTOMER_ID",
+      totalOrderPrice: { $sum: "$ORDER_PRICE" }
+    }
+  },
+  {
+    $match: {
+      totalOrderPrice: { $gt: 100 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      CustomerID: "$customer.CUST_ID",},
+      CustomerName: "$customer.CUST_NAME",
+      TotalOrderPrice: "$totalOrderPrice"
+    }
+  }
+])
+
+
+db.MP2_PRODUCTS.aggregate([
+  {
+    $group: {
+      _id: "$PROD_CATEGORY",
+      categoryCount: { $sum: 1 }
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS_CATEGORY",
+      localField: "_id",
+      foreignField: "PROD_CAT_ID",
+      as: "category"
+    }
+  },
+  {
+    $sort: {
+      categoryCount: -1
+    }
+  },
+  {
+    $limit: 5
+  },
+  {
+    $project: {
+      _id: 0,
+      Category: "$category.PROD_CAT_CATEGORY",
+      ProductCount: "$categoryCount"
+    }
+  }
+])
+
+
 Row Count 
 
 Procedure which uses SQL%ROWCOUNT to determine the number of rows affected

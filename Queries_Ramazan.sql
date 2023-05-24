@@ -1,3 +1,100 @@
+Mongo Db 
+1 в промежутке времени у заказшика показывает сколько стоят вешь которую он покупает
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      CUSTOMER_ID: 1,
+      ORDERS_DATE: {
+    		$gte: ISODate("2023-05-01T00:00:00Z"),
+    		$lte: ISODate("2023-08-31T23:59:59Z")
+  	}
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "product_info"
+    }
+  },
+  {
+    $group: {
+      _id: "$CUSTOMER_ID",
+      average_price: { $avg: "$ORDER_PRICE" },
+      products: { $push: {id:"$product_info.PROD_ID",name:"$product_info.PROD_NAME"} }
+    }
+  }
+])
+
+
+2
+выводит по заказшику все его заказы и название берет с другой коллекции
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      CUSTOMER_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "product_info"
+    }
+  },
+  {
+    $group: {
+      _id: "$CUSTOMER_ID",
+      products: { $push: {id:"$product_info.PROD_ID",order_id:"$ORDER_ID",name:"$product_info.PROD_NAME",date:"$ORDERS_DATE"} }
+    }
+  }
+])
+
+
+3
+если продукты с браком их отзывают выводит имя и место доставки 3 колектион колданады
+db.MP2_ORDERS.aggregate([
+  {
+    $match: {
+      PRODUCT_ID: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_SHIPS",
+      localField: "ORDER_ID",
+      foreignField: "SHIP_ORDER_ID",
+      as: "address"
+    }
+  },
+  {
+    $lookup: {
+      from: "MP2_PRODUCTS",
+      localField: "PRODUCT_ID",
+      foreignField: "PROD_ID",
+      as: "prod"
+    }
+  },
+  {
+    $unwind: "$address"
+  },
+  {
+    $unwind: "$prod"
+  },
+  {
+    $project: {
+      _id: 0,
+      ShipInfo: "$address",
+      NAMEofPRODUCT:"$prod.PROD_NAME",
+      Descryption:"$prod.PROD_DESCRIPTION"
+    }
+  }
+])
+
+
+
 1.1CREATE OR REPLACE PROCEDURE MP2_GroupByCategory
 IS
 BEGIN
